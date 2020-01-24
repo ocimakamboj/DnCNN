@@ -26,15 +26,15 @@ The detailed report is here [Report].
 
 ### Terminology
 
-DnCNN-S - network trained for specific noise level and grayscale images.
-DnCNN-B - network trained for blind gaussian noise and grayscale images.
-CDnCNN-B - network trained for blind gaussian noise and coloured images.
-SSIMDnCNN-S and SSIMDnCNN-B - networks trained using (1-SSIM) as the loss function.
-L1DnCNN-S - network trained with L1-loss
-MixDnCNN-B - network trained with &alpha; L1 + (1-&alpha;)(1-SSIM) loss. Value of &alpha; was set to 0.8.
-DnCNN-3 - network trained to gaussian denoising, superresolution and JPEG Deblocking, for grayscale images
-CDnCNN-3 - same as DnCNN-3, but for coloured images.
-CDnCNN-Deblur - network trained for deblurring task.
+DnCNN-S - network trained for specific noise level and grayscale images.\
+DnCNN-B - network trained for blind gaussian noise and grayscale images.\
+CDnCNN-B - network trained for blind gaussian noise and coloured images.\
+SSIMDnCNN-S and SSIMDnCNN-B - networks trained using (1-SSIM) as the loss function.\
+L1DnCNN-S - network trained with L1-loss\
+MixDnCNN-B - network trained with &alpha; L1 + (1-&alpha;)(1-SSIM) loss. Value of &alpha; was set to 0.8.\
+DnCNN-3 - network trained to gaussian denoising, superresolution and JPEG Deblocking, for grayscale images.\
+CDnCNN-3 - same as DnCNN-3, but for coloured images.\
+CDnCNN-Deblur - network trained for deblurring task.\
 
 ## Visual Results - Image Denoising
 
