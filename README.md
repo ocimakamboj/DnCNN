@@ -36,56 +36,112 @@ DnCNN-3 - network trained to gaussian denoising, superresolution and JPEG Debloc
 CDnCNN-3 - same as DnCNN-3, but for coloured images.
 CDnCNN-Deblur - network trained for deblurring task.
 
-## Visual Results
+## Visual Results - Image Denoising
 
 Denoising results with noise level 50.
 
-<figure class="image">
-  <img src=images//DnCNN-S/test_06.jpg" width="430px" alt="">
-  <figcaption>{{ include.description }}</figcaption>
-</figure>
+<p align="center">
+  <img src="images/DnCNN-S/test_06.jpg" width="285px" alt=""> <img src="images/BM3D/Predicted_BM3D06.jpg" width="285px" alt=""> <img src="images/DnCNN-S/predicted_06.jpg" width="285px" alt=""/>
+</p>
 
+<p align="center"> 
+  (left) Noisy / 15.34dB, (middle) BM3D / 24.61dB, (right) DnCNN-S / 25.9dB
+</p>
 
+<p align="center">
+  <img src="images/DnCNN-B/predicted_06.jpg" width="285px" alt=""> <img src="images/L1DnCNN-B/Predicted_L1_06.jpg" width="285px" alt=""> <img src="images/DnCNN-S/original_06.jpg" width="285px" alt=""/>
+</p>
 
-To get started, run the Test_halfmoon.m file.
+<p align="center"> 
+  (left) DnCNN-B / 25.84dB, (middle) L1DnCNN-B / 25.85dB, (right) Ground Truth
+</p>
 
-The following data has to be classified - 
+<p align="center">
+  <img src="images/CDnCNN-B/test_20.jpg" width="400px" alt=""> <img src="images/CDnCNN-B/Predicted_BM3D20.jpg" width="400px" alt=""> 
+</p>
 
-<img src="images/dataset.jpg" width="430px"/>   
+<p align="center"> 
+  (left) Noisy / 17.92dB, (right) BM3D / 24.06dB
+</p>
 
-### Notation followed in Plots
+<p align="center">
+  <img src="images/CDnCNN-B/predicted_20.jpg" width="400px" alt=""> <img src="images/CDnCNN-B/original_20.jpg" width="400px" alt=""> 
+</p>
 
-N - No. of training examples\
-C - Upper limit on the lagrange multipliers, &alpha;\
-d - distance between the two half moons as shown in the figure above\
-C.A. - Classification Accuracy on the training dataset\
-T.A - Testing Accuracy, that is the accuracy achieved on test dataset\
-N<sub>s</sub> - No. of exemplars in the support\
-N<sub>us</sub> - No. of examplars in the unbounded support\
+<p align="center"> 
+  (left) CDnCNN-B / 27.05dB, (right) Ground Truth
+</p>
 
-### Results
+## Visual Results - Super-resolution and JPEG Deblocking
 
-<img src="images/a1.jpg" width="800px"/>  
+Single image super-resolution of ’monarch’ from Set5 dataset with scale factor of 4.
+<p align="center">
+  <img src="images/SISR/test_01.jpg" width="285px" alt=""> <img src="images/SISR/predicted_01.jpg" width="285px" alt=""> <img src="images/SISR/original_01.jpg" width="285px" alt=""/>
+</p>
 
-## Tightly-fisted Datset
-To get started, run the Test.m file.
+<p align="center"> 
+  (left) Bicubic Upsampled Version, (middle) CDnCNN-3, (right) Ground Truth
+</p>
 
-The following data has to be classified - 
+Single image super-resolution of one from Urban100 dataset with scale factor of 4.
+<p align="center">
+  <img src="images/SISR/test_95.jpg" width="285px" alt=""> <img src="images/SISR/predicted_95.jpg" width="285px" alt=""> <img src="images/SISR/original_95.jpg" width="285px" alt=""/>
+</p>
 
-<img src="images/datatightfist.jpg" width="430px"/>   
+<p align="center"> 
+  (left) Bicubic Upsampled Version, (middle) CDnCNN-3, (right) Ground Truth
+</p>
 
-### Notation followed in Plots
+ JPEG image deblocking results of ”Carnivaldolls” from LIVE1 dataset with quality factor 10.
+<p align="center">
+  <img src="images/JPEG_Deblocking/test_04.jpg" width="285px" alt=""> <img src="images/JPEG_Deblocking/predicted_04.jpg" width="285px" alt=""> <img src="images/JPEG_Deblocking/original_04.jpg" width="285px" alt=""/>
+</p>
 
-N - No. of training examples\
-C - Upper limit on the lagrange multipliers, &alpha;\
-C.A. - Classification Accuracy on the training dataset\
-T.A - Testing Accuracy, that is the accuracy achieved on test dataset\
-N<sub>s</sub> - No. of exemplars in the support\
-N<sub>us</sub> - No. of examplars in the unbounded support\
- 
-### Results
-<img src="images/d3.jpg" width="800px"/>  
+<p align="center"> 
+  (left) Compressed Image, (middle) CDnCNN-3, (right) Ground Truth
+</p>
 
+JPEG image deblocking results of ”Parrots” from LIVE1 dataset with quality factor 10.
+<p align="center">
+  <img src="images/JPEG_Deblocking/test_18.jpg" width="285px" alt=""> <img src="images/JPEG_Deblocking/predicted_18.jpg" width="285px" alt=""> <img src="images/JPEG_Deblocking/original_18.jpg" width="285px" alt=""/>
+</p>
 
+<p align="center"> 
+  (left) Compressed Image, (middle) CDnCNN-3, (right) Ground Truth
+</p>
 
+An example to show the capacity of CDnCNN-3 for three different tasks. The input image is composed of following noisy images - noise level 15 (upper left) and 25 (lower left), bicubically interpolated low resolution images with scaling factor 2 (upper middle) and 3 (lower middle), JPEG images with quality factor 10 (upper right) and 30 (lower right). The white lines in the input image are just to distinguish the different regions, and the residual image has been normalized in the range of [0,1] for visualization. Even with different types of corruptions, the restored image looks natural without any artifact.
 
+<p align="center">
+  <img src="images/monarch/monarch_testB.jpg" width="285px" alt=""> <img src="images/monarch/monarch_residue.jpg" width="285px" alt=""> <img src="images/monarch/monarch_predicted.jpg" width="285px" alt=""/>
+</p>
+
+<p align="center"> 
+  (left) Input Image, (middle) Output Residual Image, (right) CDnCNN-3
+</p>
+
+<p align="center">
+  <img src="images/parrots/parrots_testB.jpg" width="285px" alt=""> <img src="images/parrots/parrots_residue.jpg" width="285px" alt=""> <img src="images/parrots/parrots_predicted.jpg" width="285px" alt=""/>
+</p>
+
+<p align="center"> 
+  (left) Input Image, (middle) Output Residual Image, (right) CDnCNN-3
+</p>
+
+## Visual Results - Image Deblurring
+
+<p align="center">
+  <img src="images/Deblur/test_03.jpg" width="285px" alt=""> <img src="images/Deblur/predicted_03.jpg" width="285px" alt=""> <img src="images/Deblur/original_03.jpg" width="285px" alt=""/>
+</p>
+
+<p align="center"> 
+  (left) Blurred Image, (middle) CDnCNN-Deblur, (right) Ground Truth
+</p>
+
+<p align="center">
+  <img src="images/Deblur/test_04.jpg" width="285px" alt=""> <img src="images/Deblur/predicted_04.jpg" width="285px" alt=""> <img src="images/Deblur/original_04.jpg" width="285px" alt=""/>
+</p>
+
+<p align="center"> 
+  (left) Blurred Image, (middle) CDnCNN-Deblur, (right) Ground Truth
+</p>
