@@ -14,7 +14,7 @@ When *v* is the difference between the ground truth high resolution image and th
 
 The following tasks were completed - 
 
-1. We successfully implement all the models from the base paper - namely DnCNN for handling a known level of gaussian noise, (named DnCNN-S), DnCNN for blind gaussian denoising (named DncNN-B), and DnCNN to handle three general image denoising tasks, namely Blind Gaussian Denoising, SISR, and JPEG Deblocking (named DnCNN-3). 
+1. We successfully implemented all the models from the base paper - namely DnCNN for handling a known level of gaussian noise, (named DnCNN-S), DnCNN for blind gaussian denoising (named DncNN-B), and DnCNN to handle three general image denoising tasks, namely Blind Gaussian Denoising, SISR, and JPEG Deblocking (named DnCNN-3). 
 2. In addition to implementation of the base paper, we conduct additional experiments on the denoising model. The base paper employs L2-loss as the loss function to train the network, also known as the mean squared error (MSE). Motivated by the fact that MSE is not an adequate metric to judge human visual perception, we employ the use of Structural SIMilarity (SSIM) index as a loss function. To make a well-rounded observation, we also train the network with L1-loss, and with 'L1-loss + SSIM' as a combined loss function. We show that L2-loss is not the best choice to train the network.
 3. Taking inspiration from the base paper where they use the residual learning strategy to solve SISR and JPEG Deblocking problem with the same network, we extend the DnCNN model to another image restoration task - Image Deblurring. In this case, the residue *v* would be the difference between the clean image, and the image that has been degraded by a blurring operator. 
 
@@ -34,7 +34,7 @@ L1DnCNN-S - network trained with L1-loss\
 MixDnCNN-B - network trained with &alpha; L1 + (1-&alpha;)(1-SSIM) loss. Value of &alpha; was set to 0.8.\
 DnCNN-3 - network trained to gaussian denoising, superresolution and JPEG Deblocking, for grayscale images.\
 CDnCNN-3 - same as DnCNN-3, but for coloured images.\
-CDnCNN-Deblur - network trained for deblurring task.\
+CDnCNN-Deblur - network trained for deblurring task.
 
 ## Visual Results - Image Denoising
 
