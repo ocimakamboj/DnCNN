@@ -20,7 +20,7 @@ The following tasks were completed -
 
 The preprocessing of the dataset was done in MATLAB, and the training and testing codes were written in Keras. The codes are for CDnCNN-3, which is the model that handles the three general image denoising tasks corresponding to coloured images.
 
-The detailed report is here [Report].
+### The detailed report is here [Report].
 
 [Report]: https://github.com/ocimakamboj/DnCNN/blob/master/Report.pdf
 
